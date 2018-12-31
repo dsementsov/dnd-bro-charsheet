@@ -1,0 +1,163 @@
+.charsheet-container {
+    align-items: stretch;
+    display: grid;
+    grid-template-columns: [border-left] auto [col1] 40% [col2] 10px [col3] 40% [col4] auto [border-right];
+    grid-template-rows: [border-top] 10px [row1] 10% [row2] 10px [row3] 10% [row4] 10px [row5] 10% [row6] 10px [row7] 20% [row8] 10px [row9] 20% [row10] 10px [row11] 20% [row12] auto [border-bottom];
+    grid-template-areas: ". . . . ."
+        ". head head head ."
+        ". . . . ."
+        ". stats stats stats ."
+        ". . . . ."
+        ". abilities abilities abilities ."
+        ". . . . ."
+        ". saves . skills ."
+        ". . . skills ."
+        ". feats . skills ."
+        ". . . skills ."
+        ". proficiencies . skills ."
+        ". . . . .";
+
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+/* Character header */
+.char-section-header {
+    /* On the parent grid */
+    grid-area: head;
+    /* Child grid */
+    display: grid;
+    grid-auto-flow: column;
+    /* Styling */
+    background: gray;
+}
+
+/* Character stats */
+.char-section-stats {
+    /* On the parent grid */
+    grid-area: stats;
+    /* Child grid */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-flow: column;
+    /* Styling */
+    background: green;
+}
+
+.centered {
+    justify-self: center;
+}
+
+
+/* Characteristics and mods */
+.char-section-abilities {
+    /* On the parent grid */
+    grid-area: abilities;
+    /* Child grid */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-flow: column;
+    /* Styling */
+    background: blue;
+}
+
+.char-card-ability {
+    /* Child grid */
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 5px;
+}
+
+.char-card-ability-header {
+    
+}
+
+.char-card-ability-footer {
+
+}
+
+
+/* Saves */
+.char-section-saves {
+    /* Parent grid */
+    grid-area: saves;
+    /* Child grid */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    /* Styling */
+    background: red;
+}
+
+.char-section-save {
+    /* Child grid */
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /* Styling */
+    background: magenta;
+}
+
+.char-section-save-adv {
+    justify-self: center;
+    /* Styling */
+    background: green;
+}
+
+.char-section-save-prof {
+    justify-self: center;
+    /* Styling */
+    background: greenyellow;
+}
+
+.char-section-save-mod {
+    justify-self: center;
+    /* Styling */
+    background: green;
+}
+
+.char-section-save-bonus {
+    justify-self: center;
+    /* Styling */
+    background: lime;
+}
+
+/* Skills */
+.char-section-skills {
+    /* Parent grid */
+    grid-area: skills;
+    /* Child grid */
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 5px;
+    /* Styling */
+    background: black;
+}
+.char-section-skill {
+    /* Child grid */
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 20px 40px auto 20px;
+    grid-column-gap: 10px;
+    
+    /* Styling */
+    background: purple;
+}
+.char-section-skill-prof {
+    justify-self: center;
+    background: lime;
+}
+
+.char-section-skill-mod {
+    justify-self: center;
+    background: magenta;
+}
+
+.char-section-skill-name {
+    background: greenyellow;
+}
+
+.char-section-skill-bonus {
+    justify-self: right;
+    background: green;
+}
