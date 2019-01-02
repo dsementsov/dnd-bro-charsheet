@@ -3,7 +3,8 @@
 
 <!-- Stylesheets -->
 
-<link rel="stylesheet" type="text/css" href="charsheet.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/charsheet.css')}}">
+<link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei" rel="stylesheet">
 
 <!-- Header -->
 
@@ -42,8 +43,16 @@
                 PROFICIENCY
                 BONUS
             </div>
-            <div class="char-stats-armorclass centered">
-                AC 15
+            <div class="char-stats-armorclass">
+                <div class = "header">
+                    ARMOR
+                </div>
+                <div class ="value">
+                    15
+                </div>
+                <div class="footer">
+                    CLASS
+                </div>
             </div>
             <div class="char-stats-intiative centered">
                 INITIATIVE
@@ -58,124 +67,31 @@
 
         <!-- Abilities -->
         <div class="char-section-abilities">
+            {% for item in mods %}
             <div class="char-section-ablility-box">
                 <div class="char-card-ability">
                     <div class="char-card-ability-header centered">
                         <span class="char-card-ablity-label centered">
-                            STRENGTH
+                            {{ item.name }}
                         </span>
                     </div>
-                    <div class="char-card-ability-center centered">
-                        <span class="char-card-ability-score">
-                            12
-                        </span>
+                    <div class="char-card-ability-center">
+                        <div class="char-card-ability-sign">
+                            {{ item.sign }}
+                        </div>
+                        <div class="char-card-ability-score">
+                            {{ item.mod }}
+                        </div>
                     </div>
                     <div class="char-card-ability-footer centered">
                         <span class="chard-card-ability-mod">
-                            +1
+                            {{ item.value }}
                         </span>
                     </div>
                 </div>
             </div>
-            <!-- HARDCODED -->
-            <div class="char-section-ablility-box">
-                <div class="char-card-ability">
-                    <div class="char-card-ability-header">
-                        <span class="char-card-ablity-label">
-                            STRENGTH
-                        </span>
-                    </div>
-                    <div class="char-card-ability-center">
-                        <span class="char-card-ability-score">
-                            12
-                        </span>
-                    </div>
-                    <div class="char-card-ability-footer">
-                        <span class="chard-card-ability-mod">
-                            +1
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="char-section-ablility-box">
-                <div class="char-card-ability">
-                    <div class="char-card-ability-header">
-                        <span class="char-card-ablity-label">
-                            STRENGTH
-                        </span>
-                    </div>
-                    <div class="char-card-ability-center">
-                        <span class="char-card-ability-score">
-                            12
-                        </span>
-                    </div>
-                    <div class="char-card-ability-footer">
-                        <span class="chard-card-ability-mod">
-                            +1
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="char-section-ablility-box">
-                <div class="char-card-ability">
-                    <div class="char-card-ability-header">
-                        <span class="char-card-ablity-label">
-                            STRENGTH
-                        </span>
-                    </div>
-                    <div class="char-card-ability-center">
-                        <span class="char-card-ability-score">
-                            12
-                        </span>
-                    </div>
-                    <div class="char-card-ability-footer">
-                        <span class="chard-card-ability-mod">
-                            +1
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="char-section-ablility-box">
-                <div class="char-card-ability">
-                    <div class="char-card-ability-header">
-                        <span class="char-card-ablity-label">
-                            STRENGTH
-                        </span>
-                    </div>
-                    <div class="char-card-ability-center">
-                        <span class="char-card-ability-score">
-                            12
-                        </span>
-                    </div>
-                    <div class="char-card-ability-footer">
-                        <span class="chard-card-ability-mod">
-                            +1
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="char-section-ablility-box">
-                <div class="char-card-ability">
-                    <div class="char-card-ability-header">
-                        <span class="char-card-ablity-label">
-                            STRENGTH
-                        </span>
-                    </div>
-                    <div class="char-card-ability-center">
-                        <span class="char-card-ability-score">
-                            12
-                        </span>
-                    </div>
-                    <div class="char-card-ability-footer">
-                        <span class="chard-card-ability-mod">
-                            +1
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <!-- ENDHARDCODED -->
+            {% endfor %}
         </div>
-
 
 
         <!-- Saves -->
