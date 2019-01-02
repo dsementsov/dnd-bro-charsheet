@@ -1,9 +1,17 @@
+body {
+    max-width: 50em;
+    margin: 0 auto;
+    /* Styling */
+    font-family: 'ZCOOL XiaoWei', serif;
+}
+
+
 .charsheet-container {
     align-items: stretch;
     justify-content: space-between;
     display: grid;
     grid-template-columns: [border-left] auto [col1] 40% [col2] 10px [col3] 40% [col4] auto [border-right];
-    grid-template-rows: [border-top] 10px [row1] auto [row2] 10px [row3] auto [row4] 10px [row5] auto [row6] 10px [row7] 20% [row8] 10px [row9] 20% [row10] 10px [row11] 20% [row12] auto [border-bottom];
+    grid-template-rows: [border-top] 10px [row1] auto [row2] 10px [row3] auto [row4] 10px [row5] auto [row6] 20px [row7] 20% [row8] 10px [row9] 20% [row10] 10px [row11] 20% [row12] auto [border-bottom];
     grid-template-areas: ". . . . ."
         ". head head head ."
         ". . . . ."
@@ -17,8 +25,7 @@
         ". . . skills ."
         ". proficiencies . skills ."
         ". . . . .";
-        /* Styling */
-        font-family: 'ZCOOL XiaoWei', serif;
+        
 }
 
 .centered {
@@ -69,10 +76,17 @@
     /* Styling */
 }
 
+.char-stats-profbonus {
+    background-image: url("/static/images/ability_box.png");
+    background-size: 100% 100%;
+    background-origin: border-box;
+}
+
 /* AC has unique box */
 .char-stats-armorclass {
     background-image: url("/static/images/ac_box.png");
     background-size: 100% 100%;
+    background-origin: border-box;
     
     /* Child grid */
     display: grid;
@@ -80,6 +94,18 @@
     align-items: center;
     grid-auto-flow: rows;
     grid-row-gap: auto;
+}
+
+.char-stats-initiative {
+    background-image: url("/static/images/ability_box.png");
+    background-size: 100% 100%;
+    background-origin: border-box;
+}
+
+.char-stats-speed {
+    background-image: url("/static/images/ability_box.png");
+    background-size: 100% 100%;
+    background-origin: border-box;
 }
 
 
@@ -142,6 +168,9 @@
 
 /* Saves */
 .char-section-saves {
+    background-image: url("/static/images/ability_box.png");
+    background-size: 100% 100%;
+    background-origin: border-box;
     /* Parent grid */
     grid-area: saves;
     /* Child grid */
@@ -150,43 +179,45 @@
     grid-template-rows: 1fr 1fr 1fr;
     grid-column-gap: 10px;
     /* Styling */
-    background: red;
 }
 
 .char-section-save {
+    
     /* Child grid */
     display: grid;
     grid-template-columns: auto auto auto auto;
     /* Styling */
-    background: magenta;
+    
 }
 
 .char-section-save-adv {
     justify-self: center;
     /* Styling */
-    background: green;
+
 }
 
 .char-section-save-prof {
     justify-self: center;
     /* Styling */
-    background: greenyellow;
+
 }
 
 .char-section-save-mod {
     justify-self: center;
     /* Styling */
-    background: green;
 }
 
 .char-section-save-bonus {
     justify-self: center;
     /* Styling */
-    background: lime;
+
 }
 
 /* Skills */
 .char-section-skills {
+    background-image: url("/static/images/ability_box.png");
+    background-size: 100% 100%;
+    background-origin: border-box;
     /* Parent grid */
     grid-area: skills;
     /* Child grid */
@@ -194,7 +225,6 @@
     grid-auto-flow: row;
     grid-row-gap: 5px;
     /* Styling */
-    background: black;
 }
 .char-section-skill {
     /* Child grid */
@@ -204,23 +234,18 @@
     grid-column-gap: 10px;
     
     /* Styling */
-    background: purple;
 }
 .char-section-skill-prof {
     justify-self: center;
-    background: lime;
 }
 
 .char-section-skill-mod {
     justify-self: center;
-    background: magenta;
 }
 
 .char-section-skill-name {
-    background: greenyellow;
 }
 
 .char-section-skill-bonus {
     justify-self: right;
-    background: green;
 }

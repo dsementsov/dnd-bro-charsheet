@@ -10,6 +10,6 @@ class NMap():
     }
 
     abilityToSkill = {
-        \
+        
     }
 

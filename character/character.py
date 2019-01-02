@@ -19,16 +19,13 @@ class Skeleton:
         Characteristics.WIS : 0,
         Characteristics.CHA : 0
     }
-    
+
     
 
     def __init__(self, characteristics):
         pass
 
 
-    def getCharContext(self):
-        context = {}
-        return context
 
     
     def __del__(self):
