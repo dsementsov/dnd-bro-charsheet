@@ -9,9 +9,7 @@ import json
 path = os.getcwd()
 new_file = path + "\\data\\new_races.json"
 
-
-
-info = Information().instance
+info = Information().instance.raceInfo
 
 official = ["PHB", "EEPC", "SCAG", "VGM", "XGE"]
 included = []
@@ -19,18 +17,20 @@ not_included = []
 
 official_races = {}
 
-for race in sorted(info.raceInfo.keys()):
-    source = info.raceInfo[race].get("source", "")
-    print (f"{race} from {source}")
+# print(info)
 
-
-# for race, value in info.raceInfo.items():
-#     for subrace, features in value.get("subraces", {}).items():
-#         source = features.get("source", "")
-#         if source in official:
-#             included.append(f"{race} of {subrace}  from {source} is included")
-#         else:
-#             not_included.append(f"{race} of {subrace}  from  {source} is not included")
+print("Analyzing races...")
+for race in info.keys():
+    source = info[race].get("source", "")
+    included.append(f"{race} from {source}")
+print("Analysing subraces")
+for race, value in info.items():
+    for subrace, features in value.get("subraces", {}).items():
+        source = features.get("source", "")
+        if source in official:
+            included.append(f"{race} of {subrace}  from {source} is included")
+        else:
+            not_included.append(f"{race} of {subrace}  from  {source} is not included")
 
 # for item in sorted(included):
 #     print(item)
