@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block body %}
+
+    <div>
+        <select name="race" id="race-selector">
+            {% for race in races %}
+            <option value="{{race}}">{{race}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+{% endblock body %}
+
