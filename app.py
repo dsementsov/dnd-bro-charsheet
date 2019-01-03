@@ -60,3 +60,9 @@ def displayCharsheet(id):
     # render character template if character exists
     return render_template("charsheet.html")
     # render 404 if there is no character
+
+
+
+@app.route('/charbuilder')
+def charbuilder():
+   pass

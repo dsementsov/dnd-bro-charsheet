@@ -13,7 +13,32 @@ new_file = path + "\\data\\new_races.json"
 
 info = Information().instance
 
-print(info.getRaceInfo("Elf"))
+official = ["PHB", "EEPC", "SCAG", "VGM", "XGE"]
+included = []
+not_included = []
+
+official_races = {}
+
+for race in sorted(info.raceInfo.keys()):
+    source = info.raceInfo[race].get("source", "")
+    print (f"{race} from {source}")
+
+
+# for race, value in info.raceInfo.items():
+#     for subrace, features in value.get("subraces", {}).items():
+#         source = features.get("source", "")
+#         if source in official:
+#             included.append(f"{race} of {subrace}  from {source} is included")
+#         else:
+#             not_included.append(f"{race} of {subrace}  from  {source} is not included")
+
+# for item in sorted(included):
+#     print(item)
+# print("===========")
+# for item in sorted(not_included):
+#     print(item)
+
+
 
 
 
