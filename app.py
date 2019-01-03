@@ -6,6 +6,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from flask import render_template
 
+from database.information import Information
 import json
 
 from enums.nmap import NMap
@@ -22,6 +23,7 @@ Session(app)
 user_authentificated = False
 username = ""
 
+info = Information().instance
 
 @app.route("/")
 def index():
@@ -60,3 +62,9 @@ def displayCharsheet(id):
     # render character template if character exists
     return render_template("charsheet.html")
     # render 404 if there is no character
+
+@app.route('/createchar')
+def createchar():
+    context = {}
+    context["races"] = sorted(info.getRacesList())
+    return render_template("createchar.html", **context)

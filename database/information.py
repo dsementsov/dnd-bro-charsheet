@@ -10,16 +10,19 @@ class Information:
         path = os.getcwd()
 
         def __getAllRacesInfo(self):
-            file = self.path + "\\data\\races.json"
+            file = self.path + "/data/races.json"
             with open(file, "r") as f:
                 j = (json.loads("".join(f.readlines())))
             self.raceInfo = j
+
+        def getRacesList(self):
+            return self.raceInfo.keys()
 
         def getRaceInfo(self, race):
             return self.raceInfo.get(race, "No information found!")
 
         def getSubracesList(self, race):
-            pass
+            return self.raceInfo[race]["subraces"].keys()
         
         def getSubraceInfo(self, subrace):
             pass
