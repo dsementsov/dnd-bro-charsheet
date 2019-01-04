@@ -1,18 +1,23 @@
 import json
+import sys
+
+sys.path.append("..")
+
+from database.information import Information
+
+info = Information().instance
 
 class Race(object):
 
-    def __init__(self, race, subrace):
+    def __init__(self, subrace, race):
         self.race = race
         self.subrace = subrace
+        feats = info.getSubraceInfo(subrace, race)
+
+        self.size = feats.get("size", "M")
         self.getRacialStats(race, subrace)
         self.getRacialFeatures(race, subrace)
 
-    @classmethod
-    def fromSubrace(cls, subrace):
-        # get race and subrace
-        race = " "
-        return Race(race, subrace)
 
     def getRacialStats(self, race, subrace):
         #

@@ -25,30 +25,10 @@ body {
         ". . . skills ."
         ". proficiencies . skills ."
         ". . . . .";
-        
+
 }
 
-.centered {
-    justify-self: center;
-}
 
-.header {
-    padding-top: 25%;
-    text-align: center;
-    font-size: large;
-}
-
-.value {
-    text-justify: center;
-    justify-self: center;
-    font-size: xx-large;
-}
-
-.footer {
-    text-align: center;
-    font-size: large;
-    padding-bottom: 25%;
-}
 
 
 /* Character header */
@@ -76,18 +56,43 @@ body {
     /* Styling */
 }
 
-.char-stats-profbonus {
-    background-image: url("/static/images/ability_box.png");
+.char-stats-card {
+    background-image: url("/static/images/frame_skills.png");
     background-size: 100% 100%;
     background-origin: border-box;
+    /* Child grid */
+    display: grid;
+    align-content: space-around;
+    justify-content: center;
+    align-self: center;
+    justify-items: center;
+    grid-auto-flow: rows;
+    grid-row-gap: auto;
+    height: 60%;
 }
+
+.stats-header {
+    font-size: smaller;
+    padding-top: 10%;
+}
+
+.stats-value {
+    font-size: x-large;
+}
+
+.stats-footer {
+    font-size: smaller;
+    padding-bottom: 10%;
+}
+
+
 
 /* AC has unique box */
 .char-stats-armorclass {
-    background-image: url("/static/images/ac_box.png");
+    background-image: url("/static/images/frame.ac.png");
     background-size: 100% 100%;
     background-origin: border-box;
-    
+
     /* Child grid */
     display: grid;
     justify-content: center;
@@ -96,19 +101,23 @@ body {
     grid-row-gap: auto;
 }
 
-.char-stats-initiative {
-    background-image: url("/static/images/ability_box.png");
-    background-size: 100% 100%;
-    background-origin: border-box;
+.header {
+    padding-top: 45%;
+    text-align: center;
+    font-size: large;
 }
 
-.char-stats-speed {
-    background-image: url("/static/images/ability_box.png");
-    background-size: 100% 100%;
-    background-origin: border-box;
+.value {
+    text-justify: center;
+    justify-self: center;
+    font-size: xx-large;
 }
 
-
+.footer {
+    text-align: center;
+    font-size: large;
+    padding-bottom: 45%;
+}
 
 
 /* Characteristics and mods */
@@ -122,19 +131,17 @@ body {
     justify-content: space-between;
     grid-auto-flow: column;
     grid-column-gap: auto;
-
-    
-
 }
 
 .char-card-ability {
-    background-image: url("/static/images/ability_box.png");
+    background-image: url("/static/images/frame_abil.png");
     background-size: 100% 100%;
     background-origin: border-box;
     /* Child grid */
     display: grid;
     grid-template-rows: auto auto auto;
     grid-row-gap: 10px;
+    justify-items: center;
 }
 
 .char-card-ability-header {
@@ -149,6 +156,7 @@ body {
     grid-template-columns: auto auto;
     grid-column-gap: 0;
 }
+
 .char-card-ability-score {
     justify-self: left;
     font-size: x-large;
@@ -168,7 +176,7 @@ body {
 
 /* Saves */
 .char-section-saves {
-    background-image: url("/static/images/ability_box.png");
+    background-image: url("/static/images/frame_skills.png");
     background-size: 100% 100%;
     background-origin: border-box;
     /* Parent grid */
@@ -182,12 +190,12 @@ body {
 }
 
 .char-section-save {
-    
+
     /* Child grid */
     display: grid;
     grid-template-columns: auto auto auto auto;
     /* Styling */
-    
+
 }
 
 .char-section-save-adv {
@@ -215,7 +223,7 @@ body {
 
 /* Skills */
 .char-section-skills {
-    background-image: url("/static/images/ability_box.png");
+    background-image: url("/static/images/frame_skills.png");
     background-size: 100% 100%;
     background-origin: border-box;
     /* Parent grid */
@@ -226,15 +234,17 @@ body {
     grid-row-gap: 5px;
     /* Styling */
 }
+
 .char-section-skill {
     /* Child grid */
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 20px 40px auto 20px;
     grid-column-gap: 10px;
-    
+
     /* Styling */
 }
+
 .char-section-skill-prof {
     justify-self: center;
 }
@@ -243,8 +253,7 @@ body {
     justify-self: center;
 }
 
-.char-section-skill-name {
-}
+.char-section-skill-name {}
 
 .char-section-skill-bonus {
     justify-self: right;
