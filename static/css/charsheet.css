@@ -10,7 +10,7 @@ body {
     align-items: stretch;
     justify-content: space-between;
     display: grid;
-    grid-template-columns: [border-left] auto [col1] 40% [col2] 10px [col3] 40% [col4] auto [border-right];
+    grid-template-columns: [border-left] auto [col1] 40% [col2] 10px [col3] 45% [col4] auto [border-right];
     grid-template-rows: [border-top] 10px [row1] auto [row2] 10px [row3] auto [row4] 10px [row5] auto [row6] 20px [row7] 20% [row8] 10px [row9] 20% [row10] 10px [row11] 20% [row12] auto [border-bottom];
     grid-template-areas: ". . . . ."
         ". head head head ."
@@ -89,7 +89,7 @@ body {
 
 /* AC has unique box */
 .char-stats-armorclass {
-    background-image: url("/static/images/frame.ac.png");
+    background-image: url("/static/images/frame_ac.png");
     background-size: 100% 100%;
     background-origin: border-box;
 
@@ -186,7 +186,14 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-column-gap: 10px;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items:center;
     /* Styling */
+    padding-top: 7%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 7%;
 }
 
 .char-section-save {
@@ -233,6 +240,10 @@ body {
     grid-auto-flow: row;
     grid-row-gap: 5px;
     /* Styling */
+    padding-top: 7%;
+    padding-bottom: 7%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .char-section-skill {

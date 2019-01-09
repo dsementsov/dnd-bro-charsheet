@@ -3,8 +3,10 @@
 <html>
 
 <head>
-    {% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei" rel="stylesheet">    
     <title>{% block title %} {% endblock %} - DnDBro</title>
+    {% block head %}
     {% endblock head %}
 </head>
 

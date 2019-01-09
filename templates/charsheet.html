@@ -123,429 +123,58 @@
 
         <!-- Saves -->
         <div class="char-section-saves">
+            {% for save in saves %}
             <div class="char-section-save">
                 <div class="char-section-save-adv">
                     <span>
-                        A
+                        {{ save.adv }}
                     </span>
                 </div>
                 <div class="char-section-save-prof">
                     <span>
-                        2
+                        {{ save.prof }}
                     </span>
                 </div>
                 <div class="char-section-save-mod">
                     <span>
-                        STR
+                        {{ save.name }}
                     </span>
                 </div>
                 <div class="char-section-save-bonus">
                     <span>
-                        +5
+                        {{ save.bonus }}
                     </span>
                 </div>
             </div>
-
-            <!-- Hardgenerated - todelete -->
-            <div class="char-section-save">
-                <div class="char-section-save-adv">
-                    <span>
-                        A
-                    </span>
-                </div>
-                <div class="char-section-save-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-save-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-save-bonus">
-                    <span>
-                        +5
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-save">
-                <div class="char-section-save-adv">
-                    <span>
-                        A
-                    </span>
-                </div>
-                <div class="char-section-save-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-save-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-save-bonus">
-                    <span>
-                        +5
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-save">
-                <div class="char-section-save-adv">
-                    <span>
-                        A
-                    </span>
-                </div>
-                <div class="char-section-save-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-save-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-save-bonus">
-                    <span>
-                        +5
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-save">
-                <div class="char-section-save-adv">
-                    <span>
-                        A
-                    </span>
-                </div>
-                <div class="char-section-save-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-save-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-save-bonus">
-                    <span>
-                        +5
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-save">
-                <div class="char-section-save-adv">
-                    <span>
-                        A
-                    </span>
-                </div>
-                <div class="char-section-save-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-save-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-save-bonus">
-                    <span>
-                        +5
-                    </span>
-                </div>
-            </div>
-            <!-- ENDTODELETE -->
-
-
+            {% endfor %}
         </div>
         <!-- Skills -->
         <div class="char-section-skills">
+            {% for skill in skills %}
             <div class="char-section-skill">
                 <div class="char-section-skill-prof">
                     <span>
-                        2
+                        {{ skill.prof }}
                     </span>
                 </div>
                 <div class="char-section-skill-mod">
                     <span>
-                        STR
+                        {{ skill.mod }}
                     </span>
                 </div>
                 <div class="char-section-skill-name">
                     <span>
-                        Athletics
+                        {{ skill.name }}
                     </span>
-
                 </div>
                 <div calss="char-section-skill-bonus">
                     <span>
-                        +8
+                        {{ skill.bonus }}
                     </span>
                 </div>
             </div>
-
-
-            <!-- Hardcoded to DELETE -->
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-            <div class="char-section-skill">
-                <div class="char-section-skill-prof">
-                    <span>
-                        2
-                    </span>
-                </div>
-                <div class="char-section-skill-mod">
-                    <span>
-                        STR
-                    </span>
-                </div>
-                <div class="char-section-skill-name">
-                    <span>
-                        Athletics
-                    </span>
-
-                </div>
-                <div calss="char-section-skill-bonus">
-                    <span>
-                        +8
-                    </span>
-                </div>
-            </div>
-
+            {% endfor %}
         </div>
-
-
     </div> <!-- Parent container end  -->
 </body>
 

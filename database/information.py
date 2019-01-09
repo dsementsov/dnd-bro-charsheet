@@ -14,6 +14,7 @@ class Information:
         five_tools_races = "races.json"
         five_tools_classes = "class/index.json"
 
+
         raceInfo = {}
         classInfo = {}
         path = os.getcwd()
@@ -29,13 +30,13 @@ class Information:
             self.raceInfo = pj.filterRacesFrom(r.json())
 
         def getRacesList(self):
-            return list(self.raceInfo.keys())
+            return [r for r in self.raceInfo.keys() if r is not None]
 
         def getRaceInfo(self, race):
             return self.raceInfo.get(race, "No information found!")
 
         def getSubracesList(self, race):
-            return list(self.raceInfo[race]["subraces"].keys())
+            return [s for s in self.raceInfo[race]["subraces"].keys() if s is not None]
         
         def getSubraceInfo(self, subrace, race = None):
             if race:
@@ -61,20 +62,26 @@ class Information:
                 class_dict = pj.filterClassesFrom(r_index.json())
                 if class_dict:
                     self.classInfo[cl] = class_dict.copy()
-            pj.writeJSON("classes_alowed.json", self.classInfo)
+            # pj.writeJSON("allowed_classes.json", self.classInfo)
 
 
         def getClassesList(self):
-            pass
+            return [c for c in self.classInfo.keys() if c is not None]
 
         def getClassInfo(self, cl):
-            pass
+            return self.classInfo.get(cl, "No such class found!")
 
         def getSubclassList(self, cl):
-            pass
+            return self.classInfo.get(cl).get("subclasses", {})
             
-        def getSubclassInfo(self, subclass):
-            pass
+        def getSubclassInfo(self, subclass, cl = None):
+            if cl:
+                return self.classInfo.get(cl, {subclass : "No such class found!"}).get(subclass, "No subclass found!")
+            else:
+                for c, f in self.classInfo.items():
+                    if subclass in f.get("subclasses"):
+                        return f.get("subclasses").get("subclass")
+                return "No such subclass!"
 
         def __init__(self):
             self.__getAllRacesInfo()

@@ -1,0 +1,62 @@
+
+
+<div>
+        {% for race in races %}
+        <ul>
+            <li> {{ race.name }}</li>
+            <ul>
+                {% for subrace in race.subraces %}
+                <li>{{ subrace }}</li>
+                {% endfor %}
+            </ul>
+        </ul>
+        {% endfor %}
+        {% for class in classes %}
+        <ul>
+            <li>{{ class.name }}</li>
+            <ul>
+                {% for subclass in class.subclasses %}
+                <li>{{ subclass }}</li>
+                {% endfor %}
+            </ul>
+        </ul>
+        {% endfor %}
+    </div>
+
+
+    <!-- accordeon -->
+
+    <!-- Parent acord -->
+<div class="panel-group" id="races">
+        {% for race in races %}
+        <!-- for each race -->
+        <div class="card">
+            <div class="card-header">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#{{race.name}}">
+                    {{race.name}}
+                </button>
+            </div>
+            <!-- for each race collapsable -->
+            <div id="{{race.name}}" class="collapse show" data-parent="#races">
+                <div class="card-body">
+                    <div class="panel-group" id="{{race.name}}_subraces">
+                        {% for subrace in race.subraces %}
+                        <div class=card>
+                            <div class="card-header">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#{{race.name}}_{{subrace}}">
+                                    {{subrace}}
+                                </button>
+                            </div>
+                            <div id="{{race.name}}_{{subrace}}" class="collapse show" data-parent="#{{race.name}}_subraces">
+                                <div class="card-body">
+                                    {{subrace}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
