@@ -57,7 +57,7 @@ body {
 }
 
 .char-stats-card {
-    background-image: url("/static/images/frame_skills.png");
+    background-image: url("/static/images/frame_saves.png");
     background-size: 100% 100%;
     background-origin: border-box;
     /* Child grid */
@@ -176,7 +176,7 @@ body {
 
 /* Saves */
 .char-section-saves {
-    background-image: url("/static/images/frame_skills.png");
+    background-image: url("/static/images/frame_saves.png");
     background-size: 100% 100%;
     background-origin: border-box;
     /* Parent grid */

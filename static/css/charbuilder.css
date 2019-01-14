@@ -1,0 +1,52 @@
+body {
+    padding-top: 5%;
+    max-width: 90em;
+}
+
+
+.builder-layout {
+    font-family: 'ZCOOL XiaoWei', serif;
+    display: grid;
+    align-items: flex-start;
+    justify-content: space-around;
+    grid-template-columns: 15% 50% 15%;
+    grid-template-rows: repeat(auto-fit, auto);
+    grid-template-areas: 
+    ". header ."
+    "selector features buttons";
+    column-gap: 10%;
+    row-gap: 20px;
+}
+
+.builder-header {
+    grid-area: header;
+    justify-content: center;
+}
+
+.builder-selector {
+    justify-self: start;
+    align-self: start;
+    padding-left: 10%;
+    grid-area: selector;
+}
+
+.builder-features {
+    grid-area: features;
+}
+
+.builder-buttons {
+    align-self: start;
+    justify-self: start;
+    padding-right: 10%;
+    grid-area: buttons;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-row-gap: 100px;
+    align-content: space-around;
+}
+
+.builder-button {
+    font-family: 'ZCOOL XiaoWei', serif;
+    width: 150px;
+    height: 75px;
+}

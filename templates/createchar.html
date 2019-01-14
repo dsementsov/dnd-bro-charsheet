@@ -2,32 +2,68 @@
 {% extends "base.html" %}
 
 {% block head %}
+<script type="text/javascript">
+    const infolink = {{ infolink|tojson }}
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/builder_info.js', version = '12052017') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/charbuilder.css')}}">
 
 {% endblock head %}
 
 {% block body %}
-<div id="Title" style="text-align: center;"> {{title}}</div>
-<form action="{{ url_for('build_character')}}" method="POST">
-    <select name="selector" id="sel">
-        {% for item in selection %}
-        <option value="{{race.name}}">
-            {{item.name}}
-        </option>
-        {% endfor %}
-    </select>
-    <input type="submit" value="Next!">
-</form>
-<form action="{{ url_for('build_character', from_scratch = True)}}" method="POST">
-    <input type="submit" value="Start from the beginning!">
-</form>
+<div class="builder-layout">
+    <!-- header -->
+    <div class="builder-header">
+       Choose a {{title}}
+    </div>
+    <!-- Selections -->
+    <div class="builder-selector">
+        <div>
+            <fieldset>
+                <legend>{{title}}</legend>
+                <form action="{{ url_for(next, arg = dynlink) }}" method="POST" id="selection">
+                    {% for item in options %}
+                    <input type="radio" name="race" id="radio" class="rad-link" data-ref="{{item}}" value="{{item}}">{{item}}
+                    <br>
+                    {% endfor %}
+                </form>
+            </fieldset>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div class="builder-features">
+        <span id="features"> </span>
+    </div>
+    <!-- Buttons -->
+    <div class="builder-buttons">
+        <button type="submit" text="Next!" form="selection" class="builder-button">Save</button>
+        <form action="{{ url_for('build_race', from_scratch = True)}}" method="POST">
+            <button type="submit" value="beginning" class="builder-button">Start from the beginning!</button>
+        </form>
+    </div>
+
+</div> <!-- grid parent -->
+
+<template id = "builder-template">
+    <fieldset>
+        <legend id="template-legend">
+        </legend>
+        <span id = "template-feature">
+        </span>
+    </fieldset>
+</template>
+
+<template id = "builder-stats">
+    <fieldset>
+        <legend id = "template-legend">
+
+        </legend>
+        <span id = "template-feature">
+
+        </span>
+    </fieldset>
+</template>
 
 
-<div>
-    So far:
-    <ul>
-        {% for key, value in selections %}
-        <li>{{ Key }} : {{ Value }}</li>
-        {% endfor %}
-    </ul>
-</div>
 {% endblock body %}

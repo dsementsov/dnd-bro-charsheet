@@ -4,7 +4,7 @@ from flask import Flask, session
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from flask import render_template, request
+from flask import render_template, request, redirect
 
 from database.information import Information
 import json
@@ -16,14 +16,10 @@ app = Flask(__name__)
 
 
 # Configure session to use filesystem
-app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_PERMANENT"] = True
 app.config["SESSION_TYPE"] = "filesystem"
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 Session(app)
-
-
-user_authentificated = False
-username = ""
-user_selected = {}
 
 info = Information().instance
 
@@ -73,6 +69,8 @@ def index():
     return render_template("charsheet.html", **context)
 
 
+
+
 @app.route("/charsheet/<int:id>", methods = ["GET"])
 def displayCharsheet(id):
     context = {}
@@ -91,35 +89,54 @@ def displayCharsheet(id):
     # render 404 if there is no character
 
 @app.route('/build', methods = ["GET", "POST"])
-def build_character(from_scratch=False):
+def build_race():
+    #  get arguments
+    from_scratch = request.args.get("from_scratch", "False")
+    # debug
+    if session['user_selected'] == None:
+            session['user_selected'] = {}
+    print(session)
     context = {}
-    if from_scratch == "True":
-        session['user_selected'] = {}
-        return render_template("createchar.html", **context)
-    
-    context["selections"] = session['user_selected']
-    if request.method == "POST":
-        request.form.get("selector")
-        context["Title"] = "Please select from the list:"
+    context["next"] = "build_race"
+    context['options'] = info.getRacesList()
+    context['infolink'] = "/info/race/"
+    context['title'] = "Choose a Race:"
 
-        if not "race" in context.get("selections"):
-            l = sorted(info.getRacesList())
-        elif not "subrace" in  context.get("selections"):
-            l = sorted(info.getSubracesList(context["selections"]["race"]))
-        elif not "class" in context.get("selections"):
-            l = sorted(info.getClassesList())
-        elif not "subclass" in context.get("selections"):
-            l = sorted(info.getSubclassList(context["selections"]["class"]))
-        context["selection"] = l
-        return render_template("createchar.html", **context)
-    
-    for cl in sorted(info.getClassesList()):
-        c = {}
-        c["name"] = cl.capitalize()
-        c["subclasses"] = sorted(info.getSubclassList(cl))
-        context["classes"].append(c)
+    if request.method == "POST":
+        if from_scratch == "True" or request.form.get("race", "None") == "None":
+            session['user_selected'] = {}
+            return render_template("createchar.html", **context)
+        session['user_selected']['race'] = request.form.get("race")
+        link = "/build/" + request.form.get("race") + "/subrace"
+        return redirect(link, code = 301)
     return render_template("createchar.html", **context)
 
-@app.route('/test')
-def test():
-   return str(info.getClassesList())
+@app.route('/build/<arg>/subrace', methods=['GET', 'POST'])
+def build_subrace(arg):
+    # degug
+    if session['user_selected']["race"] == None or session['user_selected']["race"] == "null":
+            session['user_selected'] = {}
+            return redirect("/build")
+    context = {}
+    if not session['user_selected']["race"] == None:
+        context["next"] = "build_subrace"
+        context["dynlink"] = arg
+        context["infolink"] = "/info/subrace/"
+        context["options"] = info.getSubracesList(arg)
+        context["title"] = "Choose a subrace"
+        return render_template("createchar.html", **context)
+
+    if request.method == "POST":
+        return json.dumps(session["user_selected"])
+
+############################################### INFOLINKS ##############################################
+@app.route('/info/race/<race>')
+def get_race_info(race):
+    return json.dumps(info.getRaceInfo(race))
+
+@app.route('/info/subrace/<subrace>')
+def method_name(subrace):
+    race = session["user_selected"].get("race")
+    return json.dumps(info.getSubraceInfo(subrace, race))
+
+

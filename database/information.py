@@ -28,6 +28,7 @@ class Information:
             url = self.five_e_tools + self.five_tools_races
             r = requests.get(url)
             self.raceInfo = pj.filterRacesFrom(r.json())
+            # pj.writeJSON("allowed_rasses.json", self.raceInfo)
 
         def getRacesList(self):
             return [r for r in self.raceInfo.keys() if r is not None]

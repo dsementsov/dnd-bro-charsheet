@@ -4,6 +4,7 @@ import json
 path = os.getcwd()
 
 official = ["PHB", "EEPC", "SCAG", "VGM", "XGE"]
+race_fields = ["name", "size","speed", "darkvision", "ability", "speed", ]
 
 def filterRacesFrom(json_obj):
     allowed_races = {}
@@ -19,7 +20,10 @@ def filterRacesFrom(json_obj):
         subraces = {}
         for subrace in features.get("subraces", {}):
                 if subrace.get("source", "PHB") in official:
-                        subraces[subrace.get("name")] = subrace.copy()
+                        if not subrace.get("name", "null") ==  "null":
+                                if subrace.get("name") == "Deep/Svirfneblin":
+                                        subrace["name"] = "Deep"
+                                subraces[subrace.get("name")] = subrace.copy()
         allowed_races[race]["subraces"] = subraces.copy()
     return allowed_races
 
